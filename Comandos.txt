@@ -1,0 +1,55 @@
+npm run dev // Para correr Vite
+
+C:\Users\marti\Desktop\Martin\devjobs
+
+
+CREAR UNA NUEVA COLUMNA A TABLA YA EXISTENTE
+
+1- sail artisan make:migration add_rol_to_users_table // Con esto creamos la tabla
+
+2- luego vamos al archivo de migracion y agregamos la columan y el drop
+
+3- por ultimo corremos sail artisan migrate para que lo agregue a la tabla la nueva columna
+
+Crear un Controlador 
+1- sail artisan make:controller VacanteController -r
+2- sail artisan make:model Vacante
+
+Crear una tabla
+sail artisan make:migration create_vacante_table --create=vacantes
+
+INSTALAR LIVEWIRE
+* sail composer require livewire/livewire
+* en app.blade.php agrego  @livewireStyles y @livewireScripts
+
+CREAR COMPENENTE LIVEWIRE 
+* sail artisan make:livewire CrearVacante
+
+
+CREAR SEEDING (Se ultilza cuando son registros que no se modifican) Ej Select
+
+* sail artisan make:seeder SalarioSeeder
+Crea en la carpeta database/seeders un archivo con el nombre que le dimos
+* En dicho archivo se cargan los datos que va acontener la database
+* En el archivo DatabaseSeeder.php agrego el archivo 
+
+ public function run()
+    {
+       $this->call(SalarioSeeder::class);
+       $this->call(CategoriasSeeder::class);
+    }
+* sail artisan make:migration create_categorias_table 
+Creo la tabla en la DB
+* Modifico el archivo en migrations y agrego la columan 
+* sail artisan migrate
+* sail artisan db:seed
+* sail artisan make:model Categoria // Creo el modelo para poder acceder a las consultar a la BD
+
+PUBLICAR UN PAQUETE PARA MODIFICARLO
+* sail artisan vendor:publish --tag=laravel-pagination (Video 212)
+
+CREAR UNA NOTIFICACION
+* sail artisan make:notification NuevoCandidato (Video 240)
+
+CREAR UN MIDDLEWARE
+* sail artisan make:middleware RolUsuario (Video 247)
